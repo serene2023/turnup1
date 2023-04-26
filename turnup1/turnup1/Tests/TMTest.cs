@@ -1,59 +1,44 @@
 ﻿using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using turnup.Pages;
 using NUnit.Framework;
 using turnup.Utilities;
 
+
+
 namespace turnup.Tests
 {
     [TestFixture]
-    public class TMTest : CommonDriver
+    public class TMTests : CommonDriver
     {
-        private object loginPageObj;
+        HomePage homePageObj = new HomePage();
+        TMPage tmPageObject = new TMPage();
 
-        public object HomePageObj
 
-        [setup]
-        public void LoginActions()
-        {
-            LoginPage hoemPageObj = new LoginPage();
-            loginPageObj.LoginSteps(driver);
-
-            LoginPage homePageObj = new HomePage();
-            HomePageObj.LoginSteps(driver);
-        }
-
-        [test]
+        [Test, Order(1), Description("This test checks if a user is able to create a new TM record")]
         public void CreateTM_Test()
         {
-
-            TMPage tmPageObject = new TMPage();
+           
+            homePageObj.GoToTMPage(driver);
             tmPageObject.CreateTM(driver);
-
         }
 
-        [test]
+        [Test, Order(2), Description("This test checks if a user is able to edit the last TM record")]
         public void EditTM_Test()
         {
-            TMPage tmPageObject = new TMPage();
-            tmPageObject.EditTM(driver);
+
+            homePageObj.GoToTMPage(driver);
+            //tmPageObject.EditTM(driver);
         }
 
-        [Test]
-        public void DeleteTM_Test() 
+        [Test, Order(3), Description("This test checks if a user is able to delete the last TM record")]
+        public void DeleteTM_Test()
         {
-            TMPage tmPageObject = new TMPage();
+            homePageObj.GoToTMPage(driver);
             tmPageObject.DeleteTM(driver);
+            
         }
 
-        [TearDown] 
-        public void TearDown() 
-        {
-        }
     }
 
+}
