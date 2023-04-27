@@ -1,0 +1,130 @@
+{
+	"info": {
+		"_postman_id": "ef47381d-dd15-499a-b95d-d5e20dad6181",
+		"name": "Sample",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27105885"
+	},
+	"item": [
+		{
+			"name": "Get employee",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.data[0].id).to.eql(1);\r",
+							"    pm.expect(jsonData.data[0].employee_name).to.eql(\"Tiger Nixon\");\r",
+							"    pm.expect(jsonData.data[0].employee_salary).to.eql(320800);\r",
+							"    pm.expect(jsonData.data[0].employee_age).to.eql(61);\r",
+							"\r",
+							"    pm.expect(jsonData.data[1].id).to.eql(2);\r",
+							"    pm.expect(jsonData.data[2].id).to.eql(3);\r",
+							"    pm.expect(jsonData.data[3].id).to.eql(4);\r",
+							"    pm.expect(jsonData.data[4].id).to.eql(5);\r",
+							"    pm.expect(jsonData.data[5].id).to.eql(6);\r",
+							"    pm.expect(jsonData.data[6].id).to.eql(7);\r",
+							"    pm.expect(jsonData.data[7].id).to.eql(8);\r",
+							"    pm.expect(jsonData.data[8].id).to.eql(9);\r",
+							"    pm.expect(jsonData.data[9].id).to.eql(10);\r",
+							"    pm.expect(jsonData.data[10].id).to.eql(11);\r",
+							"    pm.expect(jsonData.data[11].id).to.eql(12);\r",
+							"    pm.expect(jsonData.data[12].id).to.eql(13);\r",
+							"    pm.expect(jsonData.data[13].id).to.eql(14);\r",
+							"    pm.expect(jsonData.data[14].id).to.eql(15);\r",
+							"    pm.expect(jsonData.data[15].id).to.eql(16);\r",
+							"    pm.expect(jsonData.data[16].id).to.eql(17);\r",
+							"    pm.expect(jsonData.data[17].id).to.eql(18);\r",
+							"    pm.expect(jsonData.data[18].id).to.eql(19);\r",
+							"    pm.expect(jsonData.data[19].id).to.eql(20);\r",
+							"    pm.expect(jsonData.data[20].id).to.eql(21);\r",
+							"    pm.expect(jsonData.data[21].id).to.eql(22);\r",
+							"    pm.expect(jsonData.data[22].id).to.eql(23);\r",
+							"    pm.expect(jsonData.data[23].id).to.eql(24);\r",
+							"\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dummy.restapiexample.com/api/v1/employees",
+					"protocol": "https",
+					"host": [
+						"dummy",
+						"restapiexample",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update an existing user record",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"m.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.name).to.eql(\"Jenette Caldwell\");\r",
+							"    \r",
+							"    pm.expect(jsonData.job).to.eql(\"automation tester\");\r",
+							"    \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "https://dummy.restapiexample.com/api/v1/update/21",
+					"protocol": "https",
+					"host": [
+						"dummy",
+						"restapiexample",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"update",
+						"21"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
