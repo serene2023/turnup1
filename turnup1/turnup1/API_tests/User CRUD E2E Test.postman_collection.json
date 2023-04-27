@@ -46,11 +46,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://reqres.in/api/users",
-					"protocol": "https",
+					"raw": "{{baseUrl}}/api/users",
 					"host": [
-						"reqres",
-						"in"
+						"{{baseUrl}}"
 					],
 					"path": [
 						"api",
@@ -62,6 +60,27 @@
 		},
 		{
 			"name": "Update an existing user record",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.name).to.eql(\"serene\");\r",
+							"    \r",
+							"    pm.expect(jsonData.job).to.eql(\"automation tester\");\r",
+							"    \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "PUT",
 				"header": [],
@@ -75,11 +94,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://reqres.in/api/users/{{userID}}",
-					"protocol": "https",
+					"raw": "{{baseUrl}}/api/users/{{userID}}",
 					"host": [
-						"reqres",
-						"in"
+						"{{baseUrl}}"
 					],
 					"path": [
 						"api",
@@ -92,20 +109,31 @@
 		},
 		{
 			"name": "Delete an existing user record",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "https://reqres.in/api/users/143",
-					"protocol": "https",
+					"raw": "{{baseUrl}}/api/users/{{userID}}",
 					"host": [
-						"reqres",
-						"in"
+						"{{baseUrl}}"
 					],
 					"path": [
 						"api",
 						"users",
-						"143"
+						"{{userID}}"
 					]
 				}
 			},
